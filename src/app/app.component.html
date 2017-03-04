@@ -1,3 +1,42 @@
-<h1>
-  {{title}}
-</h1>
+<header>
+  <md-toolbar color="primary">
+
+    <h1>{{ title }}</h1>
+
+    <span class="space-filler"></span>
+
+    <span class="center">{{ subtitle }}</span>
+    <md-toolbar-row>
+    </md-toolbar-row>
+
+  </md-toolbar>
+</header>
+<div class="container">
+  <div *ngFor="let piece of history; let odd=odd; let even=even;">
+    <md-card [ngClass]="{ odd: odd, even: even }">
+      <md-card-content>
+        <p *ngIf="finished">{{ piece.hiddenText}}</p>
+        <p>{{ piece.shownText}}</p>
+      </md-card-content>
+    </md-card>
+  </div>
+  <md-card [ngClass]="oddEvenClass()">
+    <md-card-content *ngIf="!finished">
+      <md-input-container class="w100">
+        <textarea mdInput placeholder="Texto que no se verá" [(ngModel)]="textToHide"></textarea>
+      </md-input-container>
+      <md-input-container class="w100">
+        <textarea mdInput placeholder="Texto que se verá" [(ngModel)]="textToShow"></textarea>
+      </md-input-container>
+    </md-card-content>
+    <md-card-actions align="end">
+      <div *ngIf="!finished">
+        <button md-raised-button color="primary" (click)="send()">Enviar</button>
+        <button md-raised-button (click)="finish()">Terminar</button>
+      </div>
+      <div *ngIf="finished">
+        <button md-raised-button (click)="start()">Empezar</button>
+      </div>
+    </md-card-actions>
+  </md-card>
+</div>
