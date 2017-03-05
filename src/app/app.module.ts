@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {MaterialModule} from "@angular/material";
 
-import { AppComponent } from './app.component';
+import {AppComponent, HelpDialog, AboutDialog} from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HelpDialog,
+    AboutDialog,
   ],
   imports: [
     BrowserModule,
@@ -16,6 +18,7 @@ import { AppComponent } from './app.component';
     HttpModule,
     MaterialModule,
   ],
+  entryComponents: [HelpDialog, AboutDialog],
   providers: [],
   bootstrap: [AppComponent]
 })
