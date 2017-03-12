@@ -9,8 +9,8 @@
   </md-card-content>
   <md-card-actions align="end">
     <div *ngIf="!history.isFinished()">
-      <button md-raised-button color="primary" (click)="send()">Enviar</button>
-      <button md-raised-button (click)="finish()">Terminar</button>
+      <button md-raised-button color="primary" (click)="send()" [disabled]="!isValid()">Enviar</button>
+      <button md-raised-button (click)="finish()" *ngIf="history.piecesCount() != 0">Terminar</button>
     </div>
     <div *ngIf="history.isFinished()">
       <button md-raised-button (click)="start()">Empezar</button>
