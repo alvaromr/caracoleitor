@@ -1,0 +1,19 @@
+<md-card [ngClass]="oddEvenClass()">
+  <md-card-content *ngIf="!history.isFinished()">
+    <md-input-container class="w100">
+      <textarea mdInput placeholder="Texto que no se verá" [(ngModel)]="textToHide"></textarea>
+    </md-input-container>
+    <md-input-container class="w100">
+      <textarea mdInput placeholder="Texto que se verá" [(ngModel)]="textToShow"></textarea>
+    </md-input-container>
+  </md-card-content>
+  <md-card-actions align="end">
+    <div *ngIf="!history.isFinished()">
+      <button md-raised-button color="primary" (click)="send()">Enviar</button>
+      <button md-raised-button (click)="finish()">Terminar</button>
+    </div>
+    <div *ngIf="history.isFinished()">
+      <button md-raised-button (click)="start()">Empezar</button>
+    </div>
+  </md-card-actions>
+</md-card>

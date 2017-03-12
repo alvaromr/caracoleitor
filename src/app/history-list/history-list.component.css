@@ -1,0 +1,9 @@
+md-card.even {
+  background-color: #A384DD;
+}
+md-card.odd {
+  background-color: #8259C8;
+}
+md-card p{
+  color: white;
+}

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HistoryPiece } from './history-piece';
 import { AngularFire } from 'angularfire2';
 import { AuthService } from './shared/services/auth.service';
+import { History } from './shared/models/history';
+
+export const START_EVENT = 'start';
 
 @Component({
   selector: 'caracoleitor-root',
@@ -10,41 +12,19 @@ import { AuthService } from './shared/services/auth.service';
   providers: [AuthService, AngularFire]
 })
 export class AppComponent implements OnInit {
-  textToShow: string;
-  textToHide: string;
-  finished: boolean;
-  history: HistoryPiece [];
+  history: History;
 
   ngOnInit(): void {
     this.start();
   }
 
-  addPiece(hiddenText: string, shownText: string): void {
-    this.history.push(new HistoryPiece(hiddenText, shownText));
-  }
-
-  send(): void {
-    if (!this.textToShow || !this.textToHide) {
-      return;
+  receive(event) {
+    if (event === START_EVENT) {
+      this.start();
     }
-    this.addPiece(this.textToHide, this.textToShow);
-    this.textToShow = '';
-    this.textToHide = '';
   }
 
   start(): void {
-    this.history = [];
-    this.finished = false;
-    this.textToHide = '';
-    this.textToShow = '';
-  }
-
-  finish(): void {
-    this.finished = true;
-  }
-
-  oddEvenClass(): any {
-    const EVEN = this.history.length % 2 === 0;
-    return {odd: !EVEN, even: EVEN};
+    this.history = new History();
   }
 }

@@ -11,6 +11,8 @@ import { NavToolbarComponent } from './nav-toolbar/nav-toolbar.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from 'angularfire2';
 import { FIREBASE_CONFIG, FIREBASE_AUTH_CONFIG } from './database_config';
+import { HistoryListComponent } from './history-list/history-list.component';
+import { HistoryFormComponent } from './history-form/history-form.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FIREBASE_CONFIG, FIREBASE_AUTH_CONFIG } from './database_config';
     AboutDialogComponent,
     NavToolbarComponent,
     LoginComponent,
+    HistoryListComponent,
+    HistoryFormComponent,
   ],
   imports: [
     BrowserModule,
