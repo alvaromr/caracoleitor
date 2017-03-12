@@ -4,13 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import {MaterialModule} from "@angular/material";
 
-import {AppComponent, HelpDialog, AboutDialog} from './app.component';
+import {AppComponent} from './app.component';
+import { HelpDialogComponent } from './help-dialog/help-dialog.component';
+import { AboutDialogComponent } from './about-dialog/about-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelpDialog,
-    AboutDialog,
+    HelpDialogComponent,
+    AboutDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,8 +20,9 @@ import {AppComponent, HelpDialog, AboutDialog} from './app.component';
     HttpModule,
     MaterialModule,
   ],
-  entryComponents: [HelpDialog, AboutDialog],
+  entryComponents: [HelpDialogComponent, AboutDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
