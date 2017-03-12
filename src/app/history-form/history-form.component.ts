@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { History } from '../shared/models/history';
-import { START_EVENT } from '../app.component';
+import { START_EVENT, FINISH_EVENT } from '../app.component';
 
 @Component({
   selector: 'caracoleitor-history-form',
@@ -36,7 +36,7 @@ export class HistoryFormComponent implements OnInit {
   }
 
   finish(): void {
-    this.history.finish();
+    this.emitter.emit(FINISH_EVENT);
   }
 
   resetInputs() {
@@ -45,7 +45,7 @@ export class HistoryFormComponent implements OnInit {
   }
 
   oddEvenClass(): any {
-    const EVEN = this.history.piecesCount() % 2 === 0;
+    const EVEN = this.history.pieces.length % 2 === 0;
     return {odd: !EVEN, even: EVEN};
   }
 }

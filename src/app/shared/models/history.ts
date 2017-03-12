@@ -1,7 +1,7 @@
 import { HistoryPiece } from './history-piece';
 export class History {
-  private pieces: HistoryPiece [];
-  private finished: boolean;
+  pieces: HistoryPiece [];
+  finished: boolean;
 
   constructor() {
     this.pieces = [];
@@ -12,19 +12,7 @@ export class History {
     this.pieces.push(new HistoryPiece(hiddenText, shownText));
   }
 
-  public getPieces(): HistoryPiece[] {
-    return this.pieces;
-  }
-
-  public piecesCount(): number {
-    return this.pieces.length;
-  }
-
   public finish(): void {
     this.finished = true;
-  }
-
-  public isFinished(): boolean {
-    return this.finished;
   }
 }

@@ -1,7 +1,7 @@
-<div *ngFor="let piece of history.getPieces(); let odd=odd; let even=even;">
+<div *ngFor="let piece of history.pieces; let odd=odd; let even=even;">
   <md-card [ngClass]="{ odd: odd, even: even }">
     <md-card-content>
-      <p *ngIf="history.isFinished()">{{ piece.hiddenText}}</p>
+      <p *ngIf="history.finished">{{ piece.hiddenText}}</p>
       <p>{{ piece.shownText}}</p>
     </md-card-content>
   </md-card>
