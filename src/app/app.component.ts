@@ -1,8 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {HistoryPiece} from "./history-piece";
-import {MdDialog} from '@angular/material';
-import {HelpDialogComponent} from "./help-dialog/help-dialog.component";
-import {AboutDialogComponent} from "./about-dialog/about-dialog.component";
 
 @Component({
   selector: 'app-root',
@@ -14,9 +11,6 @@ export class AppComponent implements OnInit {
   textToHide: string;
   finished: boolean;
   history: HistoryPiece [];
-
-  constructor(public dialog: MdDialog) {
-  }
 
   ngOnInit(): void {
     this.start();
@@ -50,13 +44,5 @@ export class AppComponent implements OnInit {
   oddEvenClass(): any {
     let even = this.history.length % 2 == 0;
     return {odd: !even, even: even}
-  }
-
-  openHelpDialog(): void {
-    this.dialog.open(HelpDialogComponent);
-  }
-
-  openAboutDialog(): void {
-    this.dialog.open(AboutDialogComponent);
   }
 }

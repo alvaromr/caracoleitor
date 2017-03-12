@@ -7,12 +7,14 @@ import {MaterialModule} from "@angular/material";
 import {AppComponent} from './app.component';
 import { HelpDialogComponent } from './help-dialog/help-dialog.component';
 import { AboutDialogComponent } from './about-dialog/about-dialog.component';
+import { NavToolbarComponent } from './nav-toolbar/nav-toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelpDialogComponent,
     AboutDialogComponent,
+    NavToolbarComponent,
   ],
   imports: [
     BrowserModule,
