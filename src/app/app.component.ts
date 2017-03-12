@@ -1,10 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {HistoryPiece} from "./history-piece";
+import { Component, OnInit } from '@angular/core';
+import { HistoryPiece } from './history-piece';
+import { AngularFire } from 'angularfire2';
+import { AuthService } from './shared/services/auth.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'caracoleitor-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [AuthService, AngularFire]
 })
 export class AppComponent implements OnInit {
   textToShow: string;
@@ -17,8 +20,7 @@ export class AppComponent implements OnInit {
   }
 
   addPiece(hiddenText: string, shownText: string): void {
-    let piece: HistoryPiece = new HistoryPiece(hiddenText, shownText);
-    this.history.push(piece);
+    this.history.push(new HistoryPiece(hiddenText, shownText));
   }
 
   send(): void {
@@ -42,7 +44,7 @@ export class AppComponent implements OnInit {
   }
 
   oddEvenClass(): any {
-    let even = this.history.length % 2 == 0;
-    return {odd: !even, even: even}
+    const EVEN = this.history.length % 2 === 0;
+    return {odd: !EVEN, even: EVEN};
   }
 }

@@ -1,0 +1,21 @@
+<span *ngIf="authService.authenticated">
+  <span class="user-email">{{ authService.user?.email }}</span>
+</span>
+<button md-icon-button [mdMenuTriggerFor]="login_menu">
+  <md-icon *ngIf="!authService.authenticated">account_circle</md-icon>
+  <img class="user-avatar" [src]="authService.user?.avatar" *ngIf="authService.authenticated"/>
+</button>
+<md-menu #login_menu="mdMenu">
+  <span *ngIf="!authService.authenticated">
+    <button (click)="login(AUTH_METHODS.GOOGLE)" md-menu-item>
+      <md-icon class="mdi mdi-google"></md-icon>
+      <span>Entrar</span>
+    </button>
+  </span>
+  <span *ngIf="authService.authenticated">
+    <button (click)="logout()" md-menu-item *ngIf="authService.authenticated">
+      <md-icon>power_settings_new</md-icon>
+      <span>Cerrar sesión</span>
+    </button>
+  </span>
+</md-menu>

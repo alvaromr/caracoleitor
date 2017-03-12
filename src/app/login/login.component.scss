@@ -1,0 +1,15 @@
+.user-email {
+  margin-right: .5rem;
+  margin-left: .5rem;
+  font-size: .8rem;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
+}
+
+.user-avatar{
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
